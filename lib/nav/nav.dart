@@ -1,3 +1,4 @@
+import 'package:contractor_profile/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -29,7 +30,10 @@ class NavBar extends StatelessWidget {
                 // Navigator.pushNamed(context, '/');
                 break;
               case 2:
-                Navigator.pushNamed(context, '/');
+                // Navigator.pushNamed(context, '/');
+                Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context)=>Profile()),
+                          );
                 break;
             }
           },
