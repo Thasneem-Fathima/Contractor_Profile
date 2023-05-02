@@ -65,10 +65,7 @@ class P_Account extends StatelessWidget {
                 Spacer(),
                 IconButton(
                   onPressed: () {
-                    // Navigator.pushNamed(context, '/edit');
-                    Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context)=>EditDetails()),
-                          );
+                    Navigator.of(context).pushNamed('/edit');
                   },
                   icon: IconTheme(
                     data: IconThemeData(

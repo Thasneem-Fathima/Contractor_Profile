@@ -153,10 +153,7 @@ class _EditDetailsState extends State<EditDetails> {
                           profile[0].password = passController.text;
                           profile[0].uiID = upiidController.text;
 
-                          // Navigator.pushNamed(context, '/');
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context)=>Profile()),
-                          );
+                         Navigator.of(context).pushNamed('/profile');
                         }
                       },
                       style: ElevatedButton.styleFrom(

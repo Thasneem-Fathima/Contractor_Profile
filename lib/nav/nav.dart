@@ -30,10 +30,7 @@ class NavBar extends StatelessWidget {
                 // Navigator.pushNamed(context, '/');
                 break;
               case 2:
-                // Navigator.pushNamed(context, '/');
-                Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context)=>Profile()),
-                          );
+                Navigator.of(context).pushNamed('/');
                 break;
             }
           },

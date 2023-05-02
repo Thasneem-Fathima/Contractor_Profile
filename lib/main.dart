@@ -1,4 +1,5 @@
 // import 'package:contractor_profile/edit.dart';
+import 'package:contractor_profile/RouteGenerator.dart';
 import 'package:contractor_profile/profile/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ void main() {
   runApp(MaterialApp(
     home: Profile(),
     debugShowCheckedModeBanner: false,
+    onGenerateRoute: RouteGenerator.generateRoute,
   ));
 }
 
@@ -16,13 +18,13 @@ void main() {
 //   Widget build(BuildContext context) {
 //     return MaterialApp(
 //       debugShowCheckedModeBanner: false,
-//       initialRoute: '/',
-//       routes: {
-//         '/': (context) => Profile(),
-//         '/contact':(context)=>ContactUs(),
-//         '/edit':(context)=>FormScreen(),
-//       },
-
+//       // initialRoute: '/',
+//       // routes: {
+//       //   '/': (context) => Profile(),
+//       //   '/contact':(context)=>ContactUs(),
+//       //   '/edit':(context)=>FormScreen(),
+//       // },
+//       // onGenerateRoute: RouteGenerator.generateRoute,
 //     );
 //   }
 // }

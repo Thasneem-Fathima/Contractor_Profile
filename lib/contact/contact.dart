@@ -97,10 +97,10 @@ class _ContactUsState extends State<ContactUs> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     feedController.clear();
-                    // Navigator.pushNamed(context, '/');
-                    Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context)=>Profile()),
-                          );
+                    Navigator.of(context).pushNamed('/profile');
+                    // Navigator.of(context).push(
+                    //         MaterialPageRoute(builder: (context)=>Profile()),
+                    //       );
                   }
                 },
                 style: ElevatedButton.styleFrom(
