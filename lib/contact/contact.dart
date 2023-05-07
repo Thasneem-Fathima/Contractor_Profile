@@ -1,5 +1,4 @@
-                  /*CONTACT US PAGE IN PROFILE*/
-
+/*CONTACT US PAGE IN PROFILE*/
 
 import 'package:contractor_profile/contact/contact_body.dart';
 import 'package:contractor_profile/contact/contact_header.dart';
@@ -11,7 +10,6 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:contractor_profile/nav/nav.dart';
-
 
 class ContactUs extends StatefulWidget {
   @override
@@ -32,18 +30,21 @@ class _ContactUsState extends State<ContactUs> {
     });
   }
   /////
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0XFF17181D),
-      bottomNavigationBar: NavBar(selectedIndex: _selectedIndex,
-          onTabChange: _onItemTapped,),
-          
+      bottomNavigationBar: NavBar(
+        selectedIndex: _selectedIndex,
+        onTabChange: _onItemTapped,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             C_Header(),
             SizedBox(
               height: 10,
@@ -73,7 +74,9 @@ class _ContactUsState extends State<ContactUs> {
                   decoration: InputDecoration(
                     hintText: 'Enter your feedback here',
                     border: InputBorder.none,
-                    hintStyle: TextStyle(color: Color(0XFF757575),),
+                    hintStyle: TextStyle(
+                      color: Color(0XFF757575),
+                    ),
                     contentPadding: EdgeInsets.all(20),
                   ),
                   style: TextStyle(
@@ -96,33 +99,32 @@ class _ContactUsState extends State<ContactUs> {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
+                    print('Feedback submitted: ${feedController.text}');
                     feedController.clear();
                     Navigator.of(context).pushNamed('/profile');
-                    // Navigator.of(context).push(
-                    //         MaterialPageRoute(builder: (context)=>Profile()),
-                    //       );
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFE09145),
-                  foregroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    backgroundColor: Color(0xFFE09145),
+                    foregroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    minimumSize: const Size(268, 65)),
+                child: Text(
+                  'Submit Feedback',
+                  style: GoogleFonts.inter(
+                    fontSize: 16.0,
                   ),
-                  minimumSize: const Size(268, 65)
                 ),
-                child: Text('Submit Feedback',
-                style: GoogleFonts.inter(
-                            fontSize: 16.0,
-                          ),),
               ),
             ),
-            SizedBox(height: 30,)
+            SizedBox(
+              height: 30,
+            )
           ],
         ),
       ),
-     
-
     );
   }
 }

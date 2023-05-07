@@ -1,4 +1,4 @@
-              /*EDIT DETAILS PAGE IN PROFILE*/
+/*EDIT DETAILS PAGE IN PROFILE*/
 
 import 'package:contractor_profile/edit/edit_header.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +54,7 @@ class _EditDetailsState extends State<EditDetails> {
                             style: TextStyle(
                               color: Colors.white,
                             ),
+
                             ///validation
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -111,11 +112,13 @@ class _EditDetailsState extends State<EditDetails> {
                               ),
                               filled: true,
                               fillColor: Color(0XFF2B2B2B),
+
                               ///eye icon
                               suffixIcon: InkWell(
                                 onTap: () {
                                   setState(() {
                                     passToggle = !passToggle;
+                                    print('visibility: ${passToggle}');
                                   });
                                 },
                                 child: Icon(
@@ -129,6 +132,7 @@ class _EditDetailsState extends State<EditDetails> {
                             style: TextStyle(
                               color: Colors.white,
                             ),
+
                             ///validation
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -140,7 +144,7 @@ class _EditDetailsState extends State<EditDetails> {
                           ),
                         ],
                       )),
-                      //////
+                  //////
                   SizedBox(
                     height: 35,
                   ),
@@ -152,8 +156,16 @@ class _EditDetailsState extends State<EditDetails> {
                           //updating details with the new content in the text field
                           profile[0].password = passController.text;
                           profile[0].uiID = upiidController.text;
-
-                         Navigator.of(context).pushNamed('/profile');
+                         
+                          ///console log
+                          print('Edited:');
+                          for (var contractor in profile) {
+                          print('Name: ${contractor.name}');
+                          print('Password: ${contractor.password}');
+                          print('UIID: ${contractor.uiID}');
+                          }
+                          /////
+                          Navigator.of(context).pushNamed('/profile');
                         }
                       },
                       style: ElevatedButton.styleFrom(

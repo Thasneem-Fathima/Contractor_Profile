@@ -1,4 +1,4 @@
-                  /*INITIAL PAGE OF PROFILE*/
+/*INITIAL PAGE OF PROFILE*/
 
 import 'dart:ui';
 import 'package:contractor_profile/profile/account.dart';
@@ -41,7 +41,21 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-    // for Nav bar changes
+  @override
+  ///console log
+  void initState() {
+    for (var contractor in profile) {
+    print('Name: ${contractor.name}');
+    print('Password: ${contractor.password}');
+    print('UIID: ${contractor.uiID}');
+    }
+
+    super.initState();
+  }
+
+  /////// 
+
+  // for Nav bar changes
   int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
@@ -50,13 +64,15 @@ class _ProfileState extends State<Profile> {
     });
   }
   ////
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0XFF17181D),
-     bottomNavigationBar: NavBar(selectedIndex: _selectedIndex,
-          onTabChange: _onItemTapped,),
+      bottomNavigationBar: NavBar(
+        selectedIndex: _selectedIndex,
+        onTabChange: _onItemTapped,
+      ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF2B2B2B),
@@ -95,29 +111,30 @@ class _ProfileState extends State<Profile> {
               radius: 45.0,
               backgroundImage: AssetImage('/person.PNG'), //image file's name
             ),
-
           ],
         ),
         toolbarHeight: 110.0,
       ),
-      body: SafeArea(child:Column(
-        children: [
-          Dividers(),
-          SizedBox(
-            height: 20,
-          ),
-          P_Account(),
-          Dividers(),
-          SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          P_Help(),
-          Dividers(),
-        ],
-      ),),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Dividers(),
+            SizedBox(
+              height: 20,
+            ),
+            P_Account(),
+            Dividers(),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            P_Help(),
+            Dividers(),
+          ],
+        ),
+      ),
     );
   }
 }

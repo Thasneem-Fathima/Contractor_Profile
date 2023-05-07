@@ -41,8 +41,9 @@ class P_Logout extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
+                            print('Logged out');
                             Navigator.of(context).pop(true);
-                          },
+                           },
                         ),
                       ],
                     ),
@@ -60,6 +61,7 @@ class P_Logout extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
+                            print('Still logged in');
                             Navigator.of(context).pop(false);
                           },
                         ),

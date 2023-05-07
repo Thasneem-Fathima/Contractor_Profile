@@ -24,13 +24,16 @@ class NavBar extends StatelessWidget {
             onTabChange(index);
             switch (index) {
               case 0:
+                print('At home page');
                 // Navigator.pushNamed(context, '/');     //router to navigate
                 break;
               case 1:
+                print('At add item page');
                 // Navigator.pushNamed(context, '/');
                 break;
               case 2:
-                Navigator.of(context).pushNamed('/');
+                print('At profile page');
+                Navigator.of(context).pushNamed('/profile');
                 break;
             }
           },
@@ -39,8 +42,7 @@ class NavBar extends StatelessWidget {
           activeColor: Color(0XFF17181D),
           tabBackgroundColor: Color(0xFFFCD9B8),
           gap: 8,
-          padding:
-              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
           tabs: [
             GButton(
               icon: Icons.home,
