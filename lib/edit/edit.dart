@@ -1,6 +1,8 @@
 /*EDIT DETAILS PAGE IN PROFILE*/
 
+import 'package:contractor_profile/apiservice.dart';
 import 'package:contractor_profile/edit/edit_header.dart';
+import 'package:contractor_profile/storeget.dart';
 import 'package:flutter/material.dart';
 import 'package:contractor_profile/profile/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,11 +13,26 @@ class EditDetails extends StatefulWidget {
 }
 
 class _EditDetailsState extends State<EditDetails> {
+  String? cname = '';
+  @override
+  void initState() {
+    super.initState();
+    print('In edit initstate');
+    final NameSession nameSession = NameSession();
+    nameSession.getName().then((value) {
+      setState(() {
+        cname = value;
+        nameController.text = cname ?? '';
+      });
+    });
+  }
+
   final _formfield = GlobalKey<FormState>();
   final upiidController = TextEditingController(text: profile[0].uiID);
   //initializing previous(before update) details in text field
   final passController = TextEditingController(text: profile[0].password);
-  final nameController = TextEditingController(text: profile[0].name);
+  // final nameController = TextEditingController(text: profile[0].name);
+  final nameController = TextEditingController();
   bool passToggle = true;
 
   @override
@@ -150,22 +167,23 @@ class _EditDetailsState extends State<EditDetails> {
                   ),
                   Center(
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async{
                         if (_formfield.currentState!.validate()) {
                           profile[0].name = nameController.text;
                           //updating details with the new content in the text field
                           profile[0].password = passController.text;
                           profile[0].uiID = upiidController.text;
-                         
+
                           ///console log
                           print('Edited:');
                           for (var contractor in profile) {
-                          print('Name: ${contractor.name}');
-                          print('Password: ${contractor.password}');
-                          print('UIID: ${contractor.uiID}');
+                            print('Name: ${contractor.name}');
+                            print('Password: ${contractor.password}');
+                            print('UIID: ${contractor.uiID}');
                           }
                           /////
-                          Navigator.of(context).pushNamed('/profile');
+                          await HttpServices().update(nameController.text,passController.text,"Frost Bite Catering",upiidController.text);
+                          Navigator.pushNamed(context, '/profile');
                         }
                       },
                       style: ElevatedButton.styleFrom(

@@ -65,7 +65,7 @@ class P_Help extends StatelessWidget {
                 Spacer(),
                 IconButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/contact');
+                    Navigator.pushNamed(context, '/contact');
                   },
                   icon: IconTheme(
                     data: IconThemeData(

@@ -5,6 +5,7 @@ import 'package:contractor_profile/profile/account.dart';
 import 'package:contractor_profile/divider.dart';
 import 'package:contractor_profile/profile/help.dart';
 import 'package:contractor_profile/nav/nav.dart';
+import 'package:contractor_profile/storeget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -41,6 +42,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  String? cname = '';
   @override
   ///console log
   void initState() {
@@ -51,6 +53,13 @@ class _ProfileState extends State<Profile> {
     }
 
     super.initState();
+    print('In profile initstate');
+    final NameSession nameSession = NameSession();
+    nameSession.getName().then((value) {
+      setState(() {
+        cname = value;
+      });
+    });
   }
 
   /////// 
@@ -95,7 +104,8 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 Text(
-                  profile[0].name,
+                  // profile[0].name,
+                  cname??'',
                   style: GoogleFonts.inter(
                     textStyle: const TextStyle(
                       color: Color(0xFFFCD9BB),

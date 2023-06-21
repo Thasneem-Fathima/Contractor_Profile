@@ -101,7 +101,7 @@ class _ContactUsState extends State<ContactUs> {
                   if (_formKey.currentState!.validate()) {
                     print('Feedback submitted: ${feedController.text}');
                     feedController.clear();
-                    Navigator.of(context).pushNamed('/profile');
+                    Navigator.pushNamed(context, '/profile');
                   }
                 },
                 style: ElevatedButton.styleFrom(
