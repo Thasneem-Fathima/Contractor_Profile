@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class C_Header extends StatelessWidget {
+  const C_Header({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -10,14 +12,14 @@ class C_Header extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: IconTheme(
+          icon: const IconTheme(
             data: IconThemeData(
               color: Color(0xFFFCD9B8),
             ),
             child: Icon(Icons.arrow_back),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 70,
         ),
         Text(

@@ -3,21 +3,19 @@
 import 'package:contractor_profile/contact/contact_body.dart';
 import 'package:contractor_profile/contact/contact_header.dart';
 import 'package:contractor_profile/divider.dart';
-import 'package:contractor_profile/profile/profile.dart';
 import 'package:flutter/material.dart';
-// import 'profile.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:contractor_profile/nav/nav.dart';
 
 class ContactUs extends StatefulWidget {
+  const ContactUs({super.key});
+
   @override
   State<ContactUs> createState() => _ContactUsState();
 }
 
 class _ContactUsState extends State<ContactUs> {
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final feedController = TextEditingController();
 
@@ -34,7 +32,7 @@ class _ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF17181D),
+      backgroundColor: const Color(0XFF17181D),
       bottomNavigationBar: NavBar(
         selectedIndex: _selectedIndex,
         onTabChange: _onItemTapped,
@@ -42,17 +40,17 @@ class _ContactUsState extends State<ContactUs> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            C_Header(),
-            SizedBox(
+            const C_Header(),
+            const SizedBox(
               height: 10,
             ),
-            Dividers(),
+            const Dividers(),
             C_Body(),
-            Dividers(),
-            SizedBox(
+            const Dividers(),
+            const SizedBox(
               height: 20,
             ),
             Form(
@@ -62,16 +60,16 @@ class _ContactUsState extends State<ContactUs> {
                 width: 350,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
-                  color: Color(0xFF2B2B2B),
+                  color: const Color(0xFF2B2B2B),
                   border: Border.all(
-                    color: Color(0xFF2B2B2B),
+                    color: const Color(0xFF2B2B2B),
                     width: 2,
                   ),
                 ),
                 child: TextFormField(
                   controller: feedController,
                   maxLines: null,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Enter your feedback here',
                     border: InputBorder.none,
                     hintStyle: TextStyle(
@@ -79,7 +77,7 @@ class _ContactUsState extends State<ContactUs> {
                     ),
                     contentPadding: EdgeInsets.all(20),
                   ),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                   ),
                   validator: (value) {
@@ -92,7 +90,7 @@ class _ContactUsState extends State<ContactUs> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Center(
@@ -105,7 +103,7 @@ class _ContactUsState extends State<ContactUs> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFE09145),
+                    backgroundColor: const Color(0xFFE09145),
                     foregroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -119,7 +117,7 @@ class _ContactUsState extends State<ContactUs> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             )
           ],

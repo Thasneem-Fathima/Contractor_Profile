@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class C_Body extends StatelessWidget {
   List<String> emails = ['example1@test.com', 'example2@test.com'];
   List<int> ph_numbers = [9346837121, 8282379738, 7811292191];
+
+  C_Body({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,13 +38,13 @@ class C_Body extends StatelessWidget {
               ),
             ),
          
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
                 height: 36,
                 child: Row(children: [
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,15 +63,15 @@ class C_Body extends StatelessWidget {
                     ],
                   ),
                 ])),
-                Dividers(),
-            SizedBox(
+                const Dividers(),
+            const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
               height: 67,
               child: Row(
                 children: [
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,13 +94,13 @@ class C_Body extends StatelessWidget {
               ),
             ),
             
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
                 height: 36,
                 child: Row(children: [
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,15 +119,15 @@ class C_Body extends StatelessWidget {
                     ],
                   ),
                 ])),
-                Dividers(),
-            SizedBox(
+                const Dividers(),
+            const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
               height: 67,
               child: Row(
                 children: [
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,13 +147,13 @@ class C_Body extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
                 height: 36,
                 child: Row(children: [
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,

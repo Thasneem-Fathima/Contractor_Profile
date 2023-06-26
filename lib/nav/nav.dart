@@ -1,4 +1,3 @@
-import 'package:contractor_profile/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -16,7 +15,7 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
-      child: Container(
+      child: SizedBox(
         height: 42,
         child: GNav(
           selectedIndex: selectedIndex,
@@ -33,18 +32,17 @@ class NavBar extends StatelessWidget {
                 break;
               case 2:
                 print('At profile page');
-                // Navigator.of(context).pushNamed('/profile');
                 Navigator.pushNamed(context, '/profile');
                 break;
             }
           },
           backgroundColor: const Color(0xFF17181D),
           color: Colors.white,
-          activeColor: Color(0XFF17181D),
-          tabBackgroundColor: Color(0xFFFCD9B8),
+          activeColor: const Color(0XFF17181D),
+          tabBackgroundColor: const Color(0xFFFCD9B8),
           gap: 8,
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-          tabs: [
+          tabs: const [
             GButton(
               icon: Icons.home,
               text: 'Home',

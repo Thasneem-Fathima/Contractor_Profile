@@ -1,18 +1,18 @@
-import 'package:contractor_profile/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:contractor_profile/contact/contact.dart';
 
 class P_Help extends StatelessWidget {
+  const P_Help({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-           Container(
+           SizedBox(
               height: 36,
               child: Row(children: [
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,14 +30,14 @@ class P_Help extends StatelessWidget {
                   ],
                 ),
               ])),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Container(
+          SizedBox(
             height: 57,
             child: Row(
               children: [
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,12 +62,12 @@ class P_Help extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 IconButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/contact');
                   },
-                  icon: IconTheme(
+                  icon: const IconTheme(
                     data: IconThemeData(
                       color: Color(0xFFE09145),
                       size: 30,
@@ -75,7 +75,7 @@ class P_Help extends StatelessWidget {
                     child: Icon(Icons.arrow_forward),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
               ],
             ),
           ),

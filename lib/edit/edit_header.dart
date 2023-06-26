@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class E_Header extends StatelessWidget {
+  const E_Header({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Row(
@@ -17,14 +19,14 @@ class E_Header extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: IconTheme(
+              icon: const IconTheme(
                 data: IconThemeData(
                   color: Color(0xFFFCD9B8),
                 ),
                 child: Icon(Icons.arrow_back),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 50,
             ),
             Text(
@@ -38,7 +40,7 @@ class E_Header extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
@@ -50,7 +52,7 @@ class E_Header extends StatelessWidget {
             fontSize: 13.0,
           ),
         ),
-        Dividers(),
+        const Dividers(),
       ],
     );
   }

@@ -1,18 +1,19 @@
 import 'package:contractor_profile/divider.dart';
-import 'package:contractor_profile/edit/edit.dart';
 import 'package:contractor_profile/profile/logout.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class P_Account extends StatelessWidget {
+  const P_Account({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-         Container(
+         SizedBox(
               height: 36,
               child: Row(children: [
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,14 +31,14 @@ class P_Account extends StatelessWidget {
                   ],
                 ),
               ])),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Container(
+          SizedBox(
             height: 57,
             child: Row(
               children: [
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,12 +63,12 @@ class P_Account extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 IconButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/edit');
                   },
-                  icon: IconTheme(
+                  icon: const IconTheme(
                     data: IconThemeData(
                       color: Color(0xFFE09145),
                       size: 30,
@@ -75,21 +76,21 @@ class P_Account extends StatelessWidget {
                     child: Icon(Icons.arrow_forward),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 
               ],
             ),
           ),
-          Dividers(),
-          SizedBox(
+          const Dividers(),
+          const SizedBox(
             height: 20,
           ),
         
-          Container(
+          SizedBox(
             height: 57,
             child: Row(
               children: [
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,9 +115,9 @@ class P_Account extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
-                P_Logout(), 
-                SizedBox(width: 10),
+                const Spacer(),
+                const P_Logout(), 
+                const SizedBox(width: 10),
               ],
             ),
           ),

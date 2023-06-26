@@ -4,10 +4,11 @@ import 'package:contractor_profile/apiservice.dart';
 import 'package:contractor_profile/edit/edit_header.dart';
 import 'package:contractor_profile/storeget.dart';
 import 'package:flutter/material.dart';
-import 'package:contractor_profile/profile/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EditDetails extends StatefulWidget {
+  const EditDetails({super.key});
+
   @override
   State<EditDetails> createState() => _EditDetailsState();
 }
@@ -17,9 +18,8 @@ class _EditDetailsState extends State<EditDetails> {
   @override
   void initState() {
     super.initState();
-    print('In edit initstate');
-    final NameSession nameSession = NameSession();
-    nameSession.getName().then((value) {
+    final LocalStorage localStorage = LocalStorage();
+    localStorage.getName().then((value) {
       setState(() {
         cname = value;
         nameController.text = cname ?? '';
@@ -28,33 +28,30 @@ class _EditDetailsState extends State<EditDetails> {
   }
 
   final _formfield = GlobalKey<FormState>();
-  final upiidController = TextEditingController(text: profile[0].uiID);
-  //initializing previous(before update) details in text field
-  final passController = TextEditingController(text: profile[0].password);
-  // final nameController = TextEditingController(text: profile[0].name);
+  final upiidController = TextEditingController(text: '2389shbnasxj');
+  final passController = TextEditingController(text: 'xbuqsyu');
   final nameController = TextEditingController();
   bool passToggle = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF17181D),
+      backgroundColor: const Color(0XFF17181D),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            E_Header(),
+            const E_Header(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               child: Column(
                 children: [
-                  SizedBox(height: 85),
+                  const SizedBox(height: 85),
                   Form(
                       key: _formfield,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          ///Upi ID input field
                           TextFormField(
                             keyboardType: TextInputType.emailAddress,
                             controller: upiidController,
@@ -68,11 +65,9 @@ class _EditDetailsState extends State<EditDetails> {
                               filled: true,
                               fillColor: Color(0XFF2B2B2B),
                             ),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                             ),
-
-                            ///validation
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Fill this field!!";
@@ -81,9 +76,7 @@ class _EditDetailsState extends State<EditDetails> {
                               }
                             },
                           ),
-                          ///////////
                           const SizedBox(height: 20),
-                          ////Name input field
                           TextFormField(
                             keyboardType: TextInputType.emailAddress,
                             controller: nameController,
@@ -99,10 +92,9 @@ class _EditDetailsState extends State<EditDetails> {
                               filled: true,
                               fillColor: Color(0XFF2B2B2B),
                             ),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                             ),
-                            //validation
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Fill this field";
@@ -111,31 +103,28 @@ class _EditDetailsState extends State<EditDetails> {
                               }
                             },
                           ),
-                          ////////
                           const SizedBox(height: 20),
-                          ////Password input field
                           TextFormField(
                             keyboardType: TextInputType.emailAddress,
                             controller: passController,
                             obscureText: passToggle,
                             decoration: InputDecoration(
                               hintText: "New Password",
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                 color: Color(0XFF757575),
                               ),
-                              border: OutlineInputBorder(
+                              border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0)),
                               ),
                               filled: true,
-                              fillColor: Color(0XFF2B2B2B),
-
+                              fillColor: const Color(0XFF2B2B2B),
                               ///eye icon
                               suffixIcon: InkWell(
                                 onTap: () {
                                   setState(() {
                                     passToggle = !passToggle;
-                                    print('visibility: ${passToggle}');
+                                    print('visibility: $passToggle');
                                   });
                                 },
                                 child: Icon(
@@ -146,11 +135,9 @@ class _EditDetailsState extends State<EditDetails> {
                                 ),
                               ),
                             ),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                             ),
-
-                            ///validation
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Enter Password";
@@ -162,32 +149,26 @@ class _EditDetailsState extends State<EditDetails> {
                         ],
                       )),
                   //////
-                  SizedBox(
+                  const SizedBox(
                     height: 35,
                   ),
                   Center(
                     child: ElevatedButton(
                       onPressed: () async{
                         if (_formfield.currentState!.validate()) {
-                          profile[0].name = nameController.text;
-                          //updating details with the new content in the text field
-                          profile[0].password = passController.text;
-                          profile[0].uiID = upiidController.text;
-
                           ///console log
                           print('Edited:');
-                          for (var contractor in profile) {
-                            print('Name: ${contractor.name}');
-                            print('Password: ${contractor.password}');
-                            print('UIID: ${contractor.uiID}');
-                          }
+                            print(nameController.text);
+                            print(passController.text);
+                            print(upiidController.text);
+                          
                           /////
                           await HttpServices().update(nameController.text,passController.text,"Frost Bite Catering",upiidController.text);
                           Navigator.pushNamed(context, '/profile');
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFE09145),
+                          backgroundColor: const Color(0xFFE09145),
                           foregroundColor: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),

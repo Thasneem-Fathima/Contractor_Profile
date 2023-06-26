@@ -1,19 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_session/flutter_session.dart';
-import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class NameSession{
- 
+class LocalStorage {
   Future<void> saveName(String cname) async {
-    final session = FlutterSession();
-    await session.set('ContractorName', cname);
-    final coname= getName();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('ContractorName', cname);
   }
 
-  Future<String> getName() async {
-    final session = FlutterSession();
-    final cname = await session.get('ContractorName');
+  Future<void> saveToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('PresentToken', token);
+  }
+
+  Future<String?> getName() async {
+    final prefs = await SharedPreferences.getInstance();
+    final cname = prefs.getString('ContractorName');
     return cname;
   }
 
+  Future<String?> getToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('PresentToken');
+    return token;
+  }
 }
