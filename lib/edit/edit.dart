@@ -1,8 +1,9 @@
 /*EDIT DETAILS PAGE IN PROFILE*/
 
-import 'package:contractor_profile/apiservice.dart';
+import 'package:contractor_profile/services/apiservice.dart';
 import 'package:contractor_profile/edit/edit_header.dart';
-import 'package:contractor_profile/storeget.dart';
+import 'package:contractor_profile/loading_spinner.dart';
+import 'package:contractor_profile/services/storeget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +16,8 @@ class EditDetails extends StatefulWidget {
 
 class _EditDetailsState extends State<EditDetails> {
   String? cname = '';
+  bool isLoading = true;
+
   @override
   void initState() {
     super.initState();
@@ -23,6 +26,7 @@ class _EditDetailsState extends State<EditDetails> {
       setState(() {
         cname = value;
         nameController.text = cname ?? '';
+        isLoading = false;
       });
     });
   }
@@ -35,6 +39,9 @@ class _EditDetailsState extends State<EditDetails> {
 
   @override
   Widget build(BuildContext context) {
+    if (isLoading) {
+      return const LoadingPage();
+    }
     return Scaffold(
       backgroundColor: const Color(0XFF17181D),
       body: SingleChildScrollView(
@@ -119,6 +126,7 @@ class _EditDetailsState extends State<EditDetails> {
                               ),
                               filled: true,
                               fillColor: const Color(0XFF2B2B2B),
+
                               ///eye icon
                               suffixIcon: InkWell(
                                 onTap: () {
@@ -154,16 +162,24 @@ class _EditDetailsState extends State<EditDetails> {
                   ),
                   Center(
                     child: ElevatedButton(
-                      onPressed: () async{
+                      onPressed: () async {
                         if (_formfield.currentState!.validate()) {
                           ///console log
                           print('Edited:');
-                            print(nameController.text);
-                            print(passController.text);
-                            print(upiidController.text);
-                          
+                          print(nameController.text);
+                          print(passController.text);
+                          print(upiidController.text);
+
                           /////
-                          await HttpServices().update(nameController.text,passController.text,"Frost Bite Catering",upiidController.text);
+                          setState(() {
+                            isLoading = true;
+                          });
+                          await HttpServices().update(
+                              nameController.text,
+                              passController.text,
+                              "Frost Bite Catering",
+                              upiidController.text);
+                          
                           Navigator.pushNamed(context, '/profile');
                         }
                       },

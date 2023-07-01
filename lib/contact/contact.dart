@@ -6,6 +6,8 @@ import 'package:contractor_profile/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:contractor_profile/nav/nav.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class ContactUs extends StatefulWidget {
   const ContactUs({super.key});
@@ -13,7 +15,6 @@ class ContactUs extends StatefulWidget {
   @override
   State<ContactUs> createState() => _ContactUsState();
 }
-
 class _ContactUsState extends State<ContactUs> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -95,8 +96,29 @@ class _ContactUsState extends State<ContactUs> {
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
+                    String? encodeQueryParameters(Map<String, String> params) {
+                      return params.entries
+                          .map((MapEntry<String, String> e) =>
+                              '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                          .join('&');
+                    }
+
+                    final Uri emailUri = Uri(
+                      scheme: 'mailto',
+                      path: 'thasneemf78@gmail.com', //recipient address
+                      query: encodeQueryParameters(<String, String>{
+                        'subject': 'Feedback',
+                        'body': feedController.text,
+                      }),
+                    );
+
+                    if (await canLaunchUrl(emailUri)) {
+                      launchUrl(emailUri);
+                    } else {
+                      throw Exception('Could not send feedback');
+                    }
                     print('Feedback submitted: ${feedController.text}');
                     feedController.clear();
                     Navigator.pushNamed(context, '/profile');

@@ -3,8 +3,9 @@ import 'package:contractor_profile/edit/edit.dart';
 import 'package:contractor_profile/login.dart';
 import 'package:contractor_profile/profile/profile.dart';
 import 'package:flutter/material.dart';
-
-void main() {
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 

@@ -8,8 +8,7 @@ class P_Logout extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () async {
-        ///popup dialog box
-        bool confirmed = await showDialog(
+        await showDialog(
           context: context,
           barrierDismissible: false,
           builder: (BuildContext context) {
